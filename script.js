@@ -29,9 +29,8 @@ let wrong = 0;
 let questionLog = [];
 let startTime, endTime, timePlayed;
 function startGame() {
+  backMusic.loop = true;  // Ensure the bgm loops continuously
   backMusic.play();
-  backgroundMusic.loop = true;  // Ensure the music loops continuously
-  backgroundMusic.play();
   startTime = new Date();
   console.log("Game started at: " + startTime);
   playerName = document.getElementById("playerName").value;
