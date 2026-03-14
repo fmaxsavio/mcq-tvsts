@@ -344,7 +344,7 @@ function updateGoogleSheet(name, score) {
     attended: attended,
     correct: right,
     wrong: wrong,
-    score: score,
+    score: right,
     timePlayed: timePlayed
   };
   console.log("Sending Data:", data);
