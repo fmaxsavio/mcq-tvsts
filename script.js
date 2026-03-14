@@ -33,6 +33,7 @@ function startGame() {
   console.log("Game started at: " + startTime);
   playerName = document.getElementById("playerName").value;
   playerName1 = document.getElementById("playerName1").value;
+  backMusic.volume = 0.15;
   backMusic.loop = true;  // Ensure the bgm loops continuously
   backMusic.play();
   if (!playerName) {
