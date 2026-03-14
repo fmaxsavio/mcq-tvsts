@@ -287,6 +287,7 @@ function endGame(won = false) {
   document.getElementById("finalAttended").innerText = attended;
   document.getElementById("finalRight").innerText = right;
   document.getElementById("finalWrong").innerText = wrong;
+  updateGoogleSheet();
   }
 function generatePDF() {
   const { jsPDF } = window.jspdf;
@@ -336,23 +337,31 @@ function generatePDF() {
 }
 function updateGoogleSheet(name, score) {
   const url =
-    "https://script.google.com/macros/s/AKfycbwBpK8vLV96Dl_ZNWh4R07YONFsvhoO-_efEjevmG9T-hmM4IHEI9n_6tEla9SYAWS7/exec";
-  const data = { name: name, score: score };
+    "https://script.google.com/macros/s/AKfycbxK19e0RaztsrwT1bf9B3C-ljQNG2MiWvqaKTIkUMXwI3obgq95uqTxi37nSWCkKPdV/exec";
+  const data = {
+    regno: playerName,
+    name: playerName1,
+    attended: attended,
+    correct: right,
+    wrong: wrong,
+    score: score,
+    timePlayed: timePlayed
+  };
   fetch(url, {
     method: "POST",
-    mode: "cors",
+    mode: "no-cors",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(data)
   })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log("Success:", result);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+  .then(() => {
+    console.log("Score successfully sent to Google Sheet");
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
+
 }
 function shuffleArray(array) {
   if (isShuffled){
