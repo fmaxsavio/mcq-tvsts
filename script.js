@@ -347,6 +347,7 @@ function updateGoogleSheet(name, score) {
     score: score,
     timePlayed: timePlayed
   };
+  console.log("Sending Data:", data);
   fetch(url, {
     method: "POST",
     mode: "no-cors",
