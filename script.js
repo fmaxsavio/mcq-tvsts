@@ -31,6 +31,7 @@ let questionLog = [];
 let startTime, endTime, timePlayed;
 function startGame() {
   startTime = new Date();
+  shuffleArray(questions);
   console.log("Game started at: " + startTime);
   playerName = document.getElementById("playerName").value;
   playerName1 = document.getElementById("playerName1").value;
@@ -57,8 +58,7 @@ function startGame() {
 }
 function loadQuestion() {
   const score = document.getElementById("score");
-  shuffleArray(questions);
-    const questionObj = questions[currentQuestion];
+  const questionObj = questions[currentQuestion];
   document.getElementById("question").innerText = questionObj.q;
   const optionsContainer = document.getElementById("options");
   optionsContainer.innerHTML = "";
@@ -362,6 +362,7 @@ function shuffleArray(array) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
+  isShuffled = true;
 }
 window.addEventListener("blur", (e) => {
   if (document.getElementById("gamePage").checkVisibility()) {
