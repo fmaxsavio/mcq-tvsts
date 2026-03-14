@@ -273,9 +273,7 @@ function endGame(won = false) {
   endTime = new Date(); // Capture the current time
   console.log("Game ended at: " + endTime);
   timePlayed = (endTime - startTime) / 1000; // Divide by 1000 to convert milliseconds to seconds
-  backgroundMusic.pause();
   backMusic.pause();
-  backgroundMusic.currentTime = 0;
   backMusic.currentTime = 0;
   console.log("Time played: " + timePlayed + " seconds");
   isGameEnded = true;
