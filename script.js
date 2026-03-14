@@ -6,6 +6,7 @@ const scoreWrong = document.getElementById("wrong");
 const backMusic = new Audio('https://raw.github.com/fmaxsavio/mcq-tvsts/main/BGM.mp3');
 const answerRight = new Audio('https://raw.github.com/fmaxsavio/mcq-tvsts/main/Right.mp3');
 const answerWrong = new Audio('https://raw.github.com/fmaxsavio/mcq-tvsts/main/Wrong.mp3');
+backMusic.volume = 0.10; 
 canvas.width = 900;
 canvas.height = 400;
 let snake = [{ x: 10, y: 10 }];
@@ -33,8 +34,8 @@ function startGame() {
   console.log("Game started at: " + startTime);
   playerName = document.getElementById("playerName").value;
   playerName1 = document.getElementById("playerName1").value;
-  backMusic.volume = 0.10;
   backMusic.loop = true;  // Ensure the bgm loops continuously
+  backMusic.volume = 0.10;
   backMusic.play();
   if (!playerName) {
     alert("Please enter your register number to start the game.");
